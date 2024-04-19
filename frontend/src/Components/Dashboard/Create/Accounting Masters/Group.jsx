@@ -2,24 +2,23 @@ import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
 import Rightbar from '../../Reusable code/Rightbar';
 import Escape from '../../Reusable code/Escape';
-import YesNoDropdown from '../../Reusable code/YesNo';
 
 const Group = () => {
   Escape();
 
   const [formData, setFormData] = useState({
-    partNumber: '',
-    itemName: '',
-    underCategory: '',
-    entryMonth: '',
-    entryDate: '',
-    productExpiryDate: '',
-    numOfProducts: '',
-    isTaxApplicable: false,
-    tax: '',
-    cgst: '',
-    sgst: '',
-    isShelfLife: false, // Added isShelfLife to formData
+    // partNumber: '',
+    // itemName: '',
+    // underCategory: '',
+    // entryMonth: '',
+    // entryDate: '',
+    // productExpiryDate: '',
+    // numOfProducts: '',
+    // isTaxApplicable: false,
+    // tax: '',
+    // cgst: '',
+    // sgst: '',
+    // isShelfLife: false, // Added isShelfLife to formData
   });
 
   const [showCategorySidebar, setShowCategorySidebar] = useState(false);
@@ -109,12 +108,12 @@ const Group = () => {
 
   return (
     <div className="flex justify-center items-center" style={{ backgroundColor: '#ededed', width: '100%' }}>
-      <form className="p-10 rounded-lg shadow-lg" style={{ margin: '5rem', paddingLeft: '10rem', paddingRight: '10rem', backgroundColor: 'white', width: '90%' }}>
+      <form className="p-16 rounded-lg shadow-lg" style={{ margin: '5rem', paddingLeft: '3rem', paddingRight: '3rem', backgroundColor: 'white', width: '90%' }}>
         <h1 className='flex items-center justify-center text-2xl pb-6'>Group Creation</h1>
 
         {/* Input fields here */}
 
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
          <div className='flex'>
          <div className="w-full px-2 mb-4">
             <label htmlFor="name" className="block text-sm font-semibold text-gray-600">
@@ -176,56 +175,21 @@ const Group = () => {
           </div>
          </div>
 
-
-
-         
-
-         <div className="flex">
          <div className='flex'>
-         <div className="flex w-full px-2 mb-4 gap-16">
-            <label htmlFor="sub-ledger" className="block text-sm font-semibold text-gray-600">
-              
+         <div className="w-full px-2 mb-4">
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-600">
+            Used for Calculation(for eg: taxes, discount)
             </label>
-            <div className='ml-6'>
-            <YesNoDropdown/>
-            </div>
-          </div>
-          </div>
-         </div>
-
-         <div className="flex">
-         <div className='flex'>
-         <div className="flex w-full px-2 mb-4 gap-16">
-            <label htmlFor="reporting" className="block text-sm font-semibold text-gray-600">
-              
-            </label>
-            <div className='ml-6'>
-            <YesNoDropdown/>
-            </div>
-          </div>
-          </div>
-         </div>
-
-         <div className="flex">
-         <div className='flex'>
-         <div className="flex px-2 mb-4 gap-16">
-            <label htmlFor="calculation" className="block text-sm font-semibold text-gray-600">
-              User for Calculation (for eg: taxes, discounts)
-              <p>(for sales invoice entry)</p>
-            </label>
-            <div className='ml-6'>
-            <YesNoDropdown/>
-            </div>
+            <select onChange={handleMonthChange} id="ueffect" name="ueffect" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+              <option value="">Select</option>
+              <option value="01">YES</option>
+              <option value="02">No</option>
+            </select>
           </div>
 
-          </div>
-         </div>
-
-         <div className="flex flex-col">
-         <div className='flex'>
-         <div className="flex w-full px-2 mb-4">
-            <label htmlFor="partNumber" className="block text-sm font-semibold text-gray-600">
-              Method to allocate when used in purchase invoice
+          <div className="w-full px-2 mb-4">
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-600">
+            Method to allocate when used in purchase invoice
             </label>
             <input
               type="text"
@@ -239,11 +203,7 @@ const Group = () => {
               autoComplete='off'
             />
           </div>
-
           </div>
-         </div>
-
-
 
          <div className='flex justify-center '>
          <button className='items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md mt-4'>Create</button>

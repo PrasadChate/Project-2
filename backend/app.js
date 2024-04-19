@@ -20,10 +20,16 @@ const user = require("./route/userRoute");
 const company = require("./route/companyRoutes");
 const item = require("./route/itemRoutes");
 
+//Accounting Masters routes
+const group = require("./route/Accounting Masters Route/groupRoute");
+
+
+//app.use
 app.use("/rac", product);
 app.use("/rac", user);
 app.use('/rac', company);
 app.use("/rac", item);
+app.use("/rac", group);
 
 
 // Middleware for Errors

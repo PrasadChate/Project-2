@@ -20,15 +20,15 @@ const router = createBrowserRouter([
     },
 
     {
-        path:"/dashboard",
+        path:"/admin/dashboard",
         element:<Dashboard/>,
     },
     {
-      path:"/dashboard/creategroup",
+      path:"/admin/dashboard/creategroup",
       element:<Group/>
     },
     {
-      path:"/dashboard/createvoucher",
+      path:"/admin/dashboard/createvoucher",
       element:<Voucher_type/>
     }
   ]);

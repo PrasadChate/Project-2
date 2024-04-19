@@ -40,11 +40,11 @@ const Voucher_type = () => {
 
   return (
     <div className="flex justify-center items-center" style={{ backgroundColor: '#ededed', width: '100%' }}>
-      <form className="p-10 rounded-lg shadow-lg" style={{ margin: '5rem', backgroundColor: 'white', width: '90%', maxWidth: '800px' }}>
+      <form className="p-10 rounded-lg shadow-lg" style={{padding:'5rem', margin: '5rem', backgroundColor: 'white', width: '90%', maxWidth: '1000px' }}>
         <h1 className='text-2xl pb-6 text-center'>Create Voucher</h1>
 
         {/* Form fields */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-semibold text-gray-600">Name</label>
             <input
@@ -171,24 +171,13 @@ const Voucher_type = () => {
             </select>
           </div>
 
-
-
-
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-center mt-6">
-          <button
-            type="submit"
-            className="px-7 py-2 text-sm font-medium uppercase text-white bg-primary rounded-md shadow-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary"
-          >
-            Submit
-          </button>
-        </div>
+        <div className='flex justify-center '>
+         <button className='items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md mt-4'>Create</button>
+         </div>
       </form>
-
-      {/* Conditionally render the category sidebar */}
-      {/* Conditionally render the stock sidebar */}
     </div>
   );
 };
