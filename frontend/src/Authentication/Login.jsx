@@ -67,20 +67,20 @@ const Signup = ()=>{
 
                 <div className="">
                   {/* Email input */}
-                  <TEInput
+                  <input
                     type="email"
                     name="userEmail"
                     size="lg"
                     placeholder="Email"
-                    className="mb-6 border-2 p-1"
+                    className="mb-6 border-1 p-1 w-full rounded"
                     onChange={hadleFormField}
                   />
 
                   {/* Password input */}
-                  <TEInput
+                  <input
                     type="password"
                     name="userPassword"
-                    className="mb-6 border-2 p-1"
+                    className="mb-6 border-1 p-1 w-full rounded"
                     size="lg"
                     placeholder="Passowrd"
                     onChange={hadleFormField}
