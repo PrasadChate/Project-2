@@ -27,14 +27,6 @@ const Unit = () =>{
           [name]: value,
         }));
       };
-    
-      const handleMonthChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
-      };
     const [selectedOptions, setSelectedOptions] = useState(0)
     const handleOptionSelect = (index) => {
         setSelectedOptions(index);
@@ -48,7 +40,7 @@ const Unit = () =>{
     </div>
     <div className='w-5/6 ml-4 mt-6 h-[80vh] bg-[#b6bfff] rounded-lg'>
         
-    <div className="flex justify-center items-center" style={{ backgroundColor: '#b6bfff', width: '100%' }}>
+    <div className="flex justify-center items-center rounded-lg" style={{ backgroundColor: '#b6bfff', width: '100%' }}>
       <form className="mt-5 pt-8 pb-2 px-14 rounded-lg shadow-lg" style={{ backgroundColor: 'white', width: '90%', maxWidth: '800px' }}>
         <h1 className='text-2xl pb-6 text-center'>Create Unit</h1>
 
@@ -126,7 +118,7 @@ const Unit = () =>{
 
         {/* Buttons */}
         <div className='flex justify-center '>
-         <button className='items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md my-2'>Create</button>
+         <button className='items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md my  -2'>Create</button>
          </div>
       </form>
     </div>
