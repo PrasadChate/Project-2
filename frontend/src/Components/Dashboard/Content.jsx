@@ -1,15 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Content =({selectedOption}) =>{
-    const cardStyle = "bg-white mt-4 py-4 w-[200px] text-center rounded-md font-bold cursor-pointer hover:shadow-lg transform hover:scale-105 text-blue-700 mx-6"
+    const cardStyle = "bg-white mt-6 py-4 w-[200px] text-center rounded-md font-bold cursor-pointer hover:shadow-lg transform hover:scale-105 text-blue-700 mx-6"
+    const handleClick = (selectedOption,option) =>{
+        if(selectedOption==0 && option=="Create"){
+            navigate("/admin/dashboard/create")
+        }
+    }
+    const navigate = useNavigate()
     return <div className=" mx-4">
         {/* Masters */}
         {selectedOption === 0 && <div className="flex">
-            <div className={cardStyle}>Create</div>
-            <div className={cardStyle}>Alter</div>
-            <div className={cardStyle}>Chart of Accounts</div>
+            <div className={cardStyle} onClick={()=>{handleClick(selectedOption,"Create")}}>Create</div>
+            <div className={cardStyle} onClick={()=>{handleClick(selectedOption,"Alter")}}>Alter</div>
+            <div className={cardStyle} onClick={()=>{handleClick(selectedOption,"Chart of Accounts")}}>Chart of Accounts</div>
             </div>}
-        
         {/* Transactions */}
         {selectedOption === 1 && <div className="flex flex-wrap">
             <div className={cardStyle}>Vouchers</div>
