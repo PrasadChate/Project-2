@@ -19,20 +19,20 @@ app.use(cors());
 const user = require("./route/userRoute");
 const company = require("./route/companyRoutes");
 const item = require("./route/itemRoutes");
+const voucher=require("./route/Accounting Masters Route/voucherRoute");
 
 //Accounting Masters routes
 const group = require("./route/Accounting Masters Route/groupRoute");
 
 
 //Inventory Masters router
-const stockitem = require("./route/Inventory Masters Route/productRoute");
-
+const product = require("./route/Inventory Masters Route/productRoute")
 //app.use
 app.use("/rac", product);
 app.use("/rac", user);
 app.use('/rac', company);
-app.use("/rac", item);
 app.use("/rac", group);
+app.use("/rac",voucher);
 
 
 // Middleware for Errors

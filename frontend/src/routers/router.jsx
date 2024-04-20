@@ -7,8 +7,14 @@ import Signup from "../Authentication/Signup";
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Group from "../Components/Dashboard/Create/Accounting Masters/Group";
 import Voucher_type from "../Components/Dashboard/Create/Accounting Masters/Voucher_type";
-import Stock_Item from "../Components/Dashboard/Create/Inventory Masters/Stock_Item";
-
+import CreateOptions from "../Components/Dashboard/Create/CreateOptions";
+import CreateAccountingMastersOptions from "../Components/Dashboard/Create/Accounting Masters/CreateAccountingMastersOptions";
+import CreateInventoryMastersOptions from "../Components/Dashboard/Create/Inventory Masters/CreateInventoryMastersOptions";
+import CreateStatutoryMastersOptions from "../Components/Dashboard/Create/Statutory Masters/CreateStatutoryMastersOptions";
+import CreateStatutoryDetailsOptions from "../Components/Dashboard/Create/Statutory Details/CreateStatutoryDetailsOptions";
+import AlterOptions from "../Components/Dashboard/Alter/AlterOptions";
+import AlterAccountingMastersOptions from "../Components/Dashboard/Alter/Accounting Masters/AlterAccountingMastersOptions";
+import AlterInventoryMastersOptions from "../Components/Dashboard/Alter/Inventory Masters/AlterInventoryMastersOptions";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -25,10 +31,45 @@ const router = createBrowserRouter([
         element:<Dashboard/>,
     },
     {
-      path:"admin/dashboard/createproduct",
-      element:<Stock_Item/>
+        path:"/admin/dashboard/create",
+        element:<CreateOptions/>,
     },
-
+    {
+        path:"/admin/dashboard/create/accountingmaster",
+        element:<CreateAccountingMastersOptions/>,
+    },
+    {
+        path:"/admin/dashboard/create/inventorymaster",
+        element:<CreateInventoryMastersOptions/>,
+    },
+    {
+        path:"/admin/dashboard/create/statutorymaster",
+        element:<CreateStatutoryMastersOptions/>,
+    },
+    {
+        path:"/admin/dashboard/create/statutorydetails",
+        element:<CreateStatutoryDetailsOptions/>,
+    },
+    {
+        path:"/admin/dashboard/alter",
+        element:<AlterOptions/>,
+    },
+    {
+        path:"/admin/dashboard/alter/accountingmaster",
+        element:<AlterAccountingMastersOptions/>,
+    },
+    {
+        path:"/admin/dashboard/alter/inventorymaster",
+        element:<AlterInventoryMastersOptions/>,
+    },
+    // {
+    //     path:"/admin/dashboard/create/statutorymaster",
+    //     element:<StatutoryMastersOptions/>,
+    // },
+    // {
+    //     path:"/admin/dashboard/create/statutorydetails",
+    //     element:<StatutoryDetailsOptions/>,
+    // },
     {
       path:"/admin/dashboard/creategroup",
       element:<Group/>

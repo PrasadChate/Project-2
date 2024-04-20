@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Rightbar from '../../Reusable code/Rightbar';
 import Escape from '../../Reusable code/Escape';
+import axios from 'axios';
 
 const Voucher_type = () => {
   Escape();
@@ -36,12 +37,21 @@ const Voucher_type = () => {
         }));
       };
 
-  // Add your other event handlers here
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            // Send a POST request to the backend API to create a voucher
+            const response = await axios.post('http://localhost:4000/vouchers/new', formData);
+            console.log(response.data); // Log the response from the server
+        } catch (error) {
+            console.error('Error:', error); // Log any errors that occur
+        }
+    };
 
-  return (
-    <div className="flex justify-center items-center" style={{ backgroundColor: '#ededed', width: '100%' }}>
-      <form className="p-10 rounded-lg shadow-lg" style={{padding:'5rem', margin: '5rem', backgroundColor: 'white', width: '90%', maxWidth: '1000px' }}>
-        <h1 className='text-2xl pb-6 text-center'>Create Voucher</h1>
+    return (
+        <div className="flex justify-center items-center" style={{ backgroundColor: '#ededed', width: '100%' }}>
+            <form onSubmit={handleSubmit} className="p-10 rounded-lg shadow-lg" style={{ padding: '5rem', margin: '5rem', backgroundColor: 'white', width: '90%', maxWidth: '1000px' }}>
+         <h1 className='text-2xl pb-6 text-center'>Create Voucher</h1>
 
         {/* Form fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -175,8 +185,8 @@ const Voucher_type = () => {
 
         {/* Buttons */}
         <div className='flex justify-center '>
-         <button className='items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md mt-4'>Create</button>
-         </div>
+        <button type="submit" className='items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md mt-4'>Create</button>
+        </div>
       </form>
     </div>
   );
