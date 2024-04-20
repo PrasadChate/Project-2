@@ -4,28 +4,27 @@ const groupSchema = new mongoose.Schema({
     name:{
         type:String,
         require:[true, "Please Enter Group name"],
-        default:true
     },
 
     under:{
         type:String,
         require:[true, "Please Enter group under"],
-        default:true
+        default:"Yes"
     },
     subledger:{
-        type:Boolean,
+        type:String,
         require:[true, "Please select the option"],
-        default:true
+        default:"Yes"
     },
     balanceForReporting:{
-        type: Boolean,
+        type: String,
         require:[true, "Please select the required option"],
-        default:true
+        default:"Yes"
     },
     calculation:{
-        type:Boolean,
+        type:String,
         required:[true, "Please select required option"],
-        default:true
+        default:"Yes"
     },
     method:{
         type:String,
