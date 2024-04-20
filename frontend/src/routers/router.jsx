@@ -8,10 +8,13 @@ import Dashboard from "../Components/Dashboard/Dashboard";
 import Group from "../Components/Dashboard/Create/Accounting Masters/Group";
 import Voucher_type from "../Components/Dashboard/Create/Accounting Masters/Voucher_type";
 import CreateOptions from "../Components/Dashboard/Create/CreateOptions";
-import AccountingMastersOptions from "../Components/Dashboard/Create/Accounting Masters/AccountingMastersOptions";
-import InventoryMastersOptions from "../Components/Dashboard/Create/Inventory Masters/InventoryMastersOptions";
-import StatutoryMastersOptions from "../Components/Dashboard/Create/Statutory Masters/StatutoryMastersOptions";
-import StatutoryDetailsOptions from "../Components/Dashboard/Create/Statutory Details/StatutoryDetailsOptions";
+import CreateAccountingMastersOptions from "../Components/Dashboard/Create/Accounting Masters/CreateAccountingMastersOptions";
+import CreateInventoryMastersOptions from "../Components/Dashboard/Create/Inventory Masters/CreateInventoryMastersOptions";
+import CreateStatutoryMastersOptions from "../Components/Dashboard/Create/Statutory Masters/CreateStatutoryMastersOptions";
+import CreateStatutoryDetailsOptions from "../Components/Dashboard/Create/Statutory Details/CreateStatutoryDetailsOptions";
+import AlterOptions from "../Components/Dashboard/Alter/AlterOptions";
+import AlterAccountingMastersOptions from "../Components/Dashboard/Alter/Accounting Masters/AlterAccountingMastersOptions";
+import AlterInventoryMastersOptions from "../Components/Dashboard/Alter/Inventory Masters/AlterInventoryMastersOptions";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -33,20 +36,40 @@ const router = createBrowserRouter([
     },
     {
         path:"/admin/dashboard/create/accountingmaster",
-        element:<AccountingMastersOptions/>,
+        element:<CreateAccountingMastersOptions/>,
     },
     {
         path:"/admin/dashboard/create/inventorymaster",
-        element:<InventoryMastersOptions/>,
+        element:<CreateInventoryMastersOptions/>,
     },
     {
         path:"/admin/dashboard/create/statutorymaster",
-        element:<StatutoryMastersOptions/>,
+        element:<CreateStatutoryMastersOptions/>,
     },
     {
         path:"/admin/dashboard/create/statutorydetails",
-        element:<StatutoryDetailsOptions/>,
+        element:<CreateStatutoryDetailsOptions/>,
     },
+    {
+        path:"/admin/dashboard/alter",
+        element:<AlterOptions/>,
+    },
+    {
+        path:"/admin/dashboard/alter/accountingmaster",
+        element:<AlterAccountingMastersOptions/>,
+    },
+    {
+        path:"/admin/dashboard/alter/inventorymaster",
+        element:<AlterInventoryMastersOptions/>,
+    },
+    // {
+    //     path:"/admin/dashboard/create/statutorymaster",
+    //     element:<StatutoryMastersOptions/>,
+    // },
+    // {
+    //     path:"/admin/dashboard/create/statutorydetails",
+    //     element:<StatutoryDetailsOptions/>,
+    // },
     {
       path:"/admin/dashboard/creategroup",
       element:<Group/>

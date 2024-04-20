@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import Sidebar from '../../Sidebar'
 
-const StatutoryMastersOptions = () =>{
+const AlterAccountingMastersOptions = () =>{
     const [selectedOptions, setSelectedOptions] = useState(0)
     const handleOptionSelect = (index) => {
         setSelectedOptions(index);
@@ -18,8 +18,11 @@ const StatutoryMastersOptions = () =>{
     <div className='w-5/6 ml-4 mt-6 h-[80vh] bg-[#b6bfff] rounded-lg'>
         <div className='mx-4'>
             <div className="flex flex-wrap">
-                <div className={cardStyle} onClick={()=>{}}>GST Classification</div>
-                <div className={cardStyle} onClick={()=>{}}>TCS Nature of Goods</div>
+                <div className={cardStyle} onClick={()=>{}}>Group</div>
+                <div className={cardStyle} onClick={()=>{}}>Ledger</div>
+                <div className={cardStyle} onClick={()=>{}}>Cost Center</div>
+                <div className={cardStyle} onClick={()=>{}}>Currency</div>
+                <div className={cardStyle} onClick={()=>{}}>Voucher Type</div>
             </div>
         </div>
       
@@ -27,4 +30,4 @@ const StatutoryMastersOptions = () =>{
   </div>
 }
 
-export default StatutoryMastersOptions
+export default AlterAccountingMastersOptions

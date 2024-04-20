@@ -8,6 +8,9 @@ const Content =({selectedOption}) =>{
         if(selectedOption==0 && option=="Create"){
             navigate("/admin/dashboard/create")
         }
+        if(selectedOption==0 && option=="Alter"){
+            navigate("/admin/dashboard/alter")
+        }
     }
     const navigate = useNavigate()
     return <div className=" mx-4">

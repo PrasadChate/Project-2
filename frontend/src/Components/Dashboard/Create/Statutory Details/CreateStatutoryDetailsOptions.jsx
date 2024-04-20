@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import Sidebar from '../../Sidebar'
 
-const InventoryMastersOptions = () =>{
+const CreateStatutoryDetailsOptions = () =>{
     const [selectedOptions, setSelectedOptions] = useState(0)
     const handleOptionSelect = (index) => {
         setSelectedOptions(index);
@@ -18,11 +18,9 @@ const InventoryMastersOptions = () =>{
     <div className='w-5/6 ml-4 mt-6 h-[80vh] bg-[#b6bfff] rounded-lg'>
         <div className='mx-4'>
             <div className="flex flex-wrap">
-                <div className={cardStyle} onClick={()=>{}}>Stock Group</div>
-                <div className={cardStyle} onClick={()=>{}}>Stock Category</div>
-                <div className={cardStyle} onClick={()=>{}}>Stock Item</div>
-                <div className={cardStyle} onClick={()=>{}}>Unit</div>
-                <div className={cardStyle} onClick={()=>{}}>Godown</div>
+                <div className={cardStyle} onClick={()=>{}}>GST Details</div>
+                <div className={cardStyle} onClick={()=>{}}>TCS Details</div>
+                <div className={cardStyle} onClick={()=>{}}>PAN/CIN Details</div>
             </div>
         </div>
       
@@ -30,4 +28,4 @@ const InventoryMastersOptions = () =>{
   </div>
 }
 
-export default InventoryMastersOptions
+export default CreateStatutoryDetailsOptions
