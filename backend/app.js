@@ -15,7 +15,7 @@ app.use(cors());
 
 
 //ROUTE EXPORTS
-const product = require("./route/productRoute");
+// const product = require("./route/productRoute");
 const user = require("./route/userRoute");
 const company = require("./route/companyRoutes");
 const item = require("./route/itemRoutes");
@@ -23,6 +23,9 @@ const item = require("./route/itemRoutes");
 //Accounting Masters routes
 const group = require("./route/Accounting Masters Route/groupRoute");
 
+
+//Inventory Masters router
+const stockitem = require("./route/Inventory Masters Route/productRoute");
 
 //app.use
 app.use("/rac", product);

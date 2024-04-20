@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAllProducts, createProduct, updateProduct, deleteProduct, getProductDetails, scheduleExpiryDate, expiredProducts, totalStockCount, numberOfCategories, totalCategories } = require("../controllers/productController");
+const { getAllProducts, createProduct, updateProduct, deleteProduct, getProductDetails, scheduleExpiryDate, expiredProducts, totalStockCount, numberOfCategories, totalCategories } = require("../Inventory Masters Route/productRoute");
 
 const router = express.Router();
 

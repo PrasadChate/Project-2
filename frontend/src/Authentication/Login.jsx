@@ -72,7 +72,7 @@ const Signup = ()=>{
                     name="userEmail"
                     size="lg"
                     placeholder="Email"
-                    className="mb-6 border-1 p-1 w-full rounded"
+                    className="mb-6 border p-1 w-full rounded"
                     onChange={hadleFormField}
                   />
 
@@ -80,7 +80,7 @@ const Signup = ()=>{
                   <input
                     type="password"
                     name="userPassword"
-                    className="mb-6 border-1 p-1 w-full rounded"
+                    className="mb-6 border p-1 w-full rounded"
                     size="lg"
                     placeholder="Passowrd"
                     onChange={hadleFormField}

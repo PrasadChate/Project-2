@@ -71,30 +71,30 @@ const Signup = ()=>{
 
              <div className="">
                  {/* <!-- Name input --> */}
-              <TEInput
+              <input
                 type="name"
                 name="userName"
                 size="lg"
                 placeholder="Name"
-                className="mb-6 border-2 p-1" 
+                className="mb-6 border p-1 w-full" 
                 onChange={hadleFormField}
-              ></TEInput>
+              />
 
               {/* Email input */}
-              <TEInput
+              <input
                     type="email"
                     name="userEmail"
                     size="lg"
                     placeholder="Email"
-                    className="mb-6 border-2 p-1"
+                    className="mb-6 border p-1 w-full"
                     onChange={hadleFormField}
                   />
 
                   {/* Password input */}
-                  <TEInput
+                  <input
                     type="password"
                     name="userPassword"
-                    className="mb-6 border-2 p-1"
+                    className="mb-6 border p-1 w-full"
                     size="lg"
                     placeholder="Passowrd"
                     onChange={hadleFormField}
@@ -107,7 +107,7 @@ const Signup = ()=>{
                 <TERipple rippleColor="light">
                   <button
                     type="button"
-                    className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    className="inline-block hover:pointer rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                     onClick={handlesignin}
                     style={{backgroundColor:'blue'}}
                   >

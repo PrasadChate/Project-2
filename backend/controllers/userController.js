@@ -4,7 +4,7 @@ const catchAsyncErrors = require("../middleWare/catchAsyncErrors");
 const sendEmail = require("../utils/sendEmail");
 const sendToken = require("../utils/jwtToken");
 const crypto = require("crypto");
-const { validate } = require("../modals/productModal");
+const { validate } = require("../modals/Inventory Masters Modal/productModal");
 
 /*************
 CREATE New User

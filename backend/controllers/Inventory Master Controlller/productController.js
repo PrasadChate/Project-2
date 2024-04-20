@@ -1,8 +1,8 @@
-const Product = require("../modals/productModal");
-const ErrorHandler = require("../utils/errorhander");
-const catchAsyncErrors = require("../middleWare/catchAsyncErrors");
+const Product = require("../../modals/Inventory Masters Modal/productModal")
+const ErrorHandler = require("../../utils/errorhander");
+const catchAsyncErrors = require("../../middleWare/catchAsyncErrors");
 const { json } = require("express");
-const ApiFeatures = require("../utils/apiFeatures");
+const ApiFeatures = require("../../utils/apiFeatures");
 
 /*************
 CREATE PRODUCT
@@ -13,7 +13,7 @@ exports.createProduct = catchAsyncErrors(async(req,res,next)=>{
 
     res.status(201).json({
         success:true,
-        product,
+        product ,
     })
 });
 
