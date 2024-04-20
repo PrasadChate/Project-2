@@ -20,12 +20,12 @@ const AlterOptions = () =>{
     if(selectedOption==0 && option=="Inventory Master"){
         navigate("/admin/dashboard/alter/inventorymaster")
     }
-    if(selectedOption==0 && option=="Statutory Master"){
-        navigate("/admin/dashboard/alter/statutorymaster")
-    }
-    if(selectedOption==0 && option=="Statutory Details"){
-        navigate("/admin/dashboard/alter/statutorydetails")
-    }
+    // if(selectedOption==0 && option=="Statutory Master"){
+    //     navigate("/admin/dashboard/alter/statutorymaster")
+    // }
+    // if(selectedOption==0 && option=="Statutory Details"){
+    //     navigate("/admin/dashboard/alter/statutorydetails")
+    // }
 }
   const cardStyle = "bg-white mt-6 py-4 w-[200px] text-center rounded-md font-bold cursor-pointer hover:shadow-lg transform hover:scale-105 text-blue-700 mx-6"
   const sideBaroptions = ["Master" ,"Transactions","Utilities","Reports"]
@@ -38,8 +38,8 @@ const AlterOptions = () =>{
             <div className="flex flex-wrap">
                 <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Accounting Master")}}>Accounting Master</div>
                 <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Inventory Master")}}>Inventory Masters</div>
-                <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Statutory Master")}}>Statutory Masters</div>
-                <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Statutory Details")}}>Statutory Details</div>
+                {/* <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Statutory Master")}}>Statutory Masters</div>
+                <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Statutory Details")}}>Statutory Details</div> */}
             </div>
         </div>
       

@@ -15,6 +15,7 @@ import CreateStatutoryDetailsOptions from "../Components/Dashboard/Create/Statut
 import AlterOptions from "../Components/Dashboard/Alter/AlterOptions";
 import AlterAccountingMastersOptions from "../Components/Dashboard/Alter/Accounting Masters/AlterAccountingMastersOptions";
 import AlterInventoryMastersOptions from "../Components/Dashboard/Alter/Inventory Masters/AlterInventoryMastersOptions";
+import Unit from "../Components/Dashboard/Create/Inventory Masters/Unit";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
     //     path:"/admin/dashboard/create/statutorydetails",
     //     element:<StatutoryDetailsOptions/>,
     // },
+    {
+      path:"/admin/dashboard/create/inventorymaster/unit",
+      element:<Unit/>
+    },
     {
       path:"/admin/dashboard/creategroup",
       element:<Group/>
