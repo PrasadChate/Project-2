@@ -51,7 +51,7 @@ const Ledger = () => {
 
         
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-semibold text-gray-600">Name</label>
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-600-bold">Name</label>
             <input
               type="text"
               id="name"
@@ -63,10 +63,13 @@ const Ledger = () => {
               autoComplete='off'
             />
           </div>
+
           <br />
+
           <label className="block text-sm font-semibold text-gray-600-bold">Description : </label>
           <hr />
-          <div className="w-full px-2 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mb-4">
             <label htmlFor="under" className="block text-sm font-semibold text-gray-600">Under</label>
             <input
               type="text"
@@ -79,8 +82,9 @@ const Ledger = () => {
               placeholder="Enter item name"
               autoComplete='off'
             />
-          </div>
+          </div></div>
 
+          <br />
           <div className="mb-4">
             <label htmlFor="MaintainBalancesBillByBill" className="block text-sm font-semibold text-gray-600">Maintain Balances Bill-by-Bill</label>
             <select onChange={handleMonthChange} id="MaintainBalancesBillByBill" name="MaintainBalancesBillByBill" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
@@ -89,8 +93,8 @@ const Ledger = () => {
               <option value="02">No</option>
             </select>
           </div>
-          
-          <div className="mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="w-full px-4 mb-4">
             <label htmlFor="CreditPeriodDefault" className="block text-sm font-semibold text-gray-600">Default Credit Period</label>
             <input
               type="text"
@@ -104,15 +108,16 @@ const Ledger = () => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="w-full px-4 mb-4">
             <label htmlFor="CreditPeriodCheck" className="block text-sm font-semibold text-gray-600">Check for credit days during voucher entry</label>
             <select onChange={handleMonthChange} id="CreditPeriodCheck" name="CreditPeriodCheck" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
               <option value="">Select</option>
               <option value="01">YES</option>
               <option value="02">No</option>
             </select>
-          </div>
+          </div></div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label htmlFor="CreditLimit" className="block text-sm font-semibold text-gray-600">Specify Credit Limit</label>
             <input
@@ -125,10 +130,11 @@ const Ledger = () => {
               placeholder="Enter Credit Limit"
               autoComplete='off'
             />
-          </div>
+          </div></div>
 
+          <br />
           <div className="mb-4">
-            <label htmlFor="InventoryValuesAffected" className="block text-sm font-semibold text-gray-600">Percentage Values are affected</label>
+            <label htmlFor="InventoryValuesAffected" className="block text-sm font-semibold text-gray-600">Inventory Values are affected</label>
             <select onChange={handleMonthChange} id="InventoryValuesAffected" name="InventoryValuesAffected" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
               <option value="">Select</option>
               <option value="01">YES</option>
