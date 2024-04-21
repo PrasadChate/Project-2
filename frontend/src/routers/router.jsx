@@ -16,73 +16,79 @@ import AlterOptions from "../Components/Dashboard/Alter/AlterOptions";
 import AlterAccountingMastersOptions from "../Components/Dashboard/Alter/Accounting Masters/AlterAccountingMastersOptions";
 import AlterInventoryMastersOptions from "../Components/Dashboard/Alter/Inventory Masters/AlterInventoryMastersOptions";
 import Unit from "../Components/Dashboard/Create/Inventory Masters/Unit";
+import ProtectedRoute from "./ProtectedRoute";
+
 const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Login/>
+        path: "/",
+        element: <Login />
     },
 
     {
-        path:"/signup",
-        element:<Signup/>
-    },
-
-    {
-        path:"/admin/dashboard",
-        element:<Dashboard/>,
+        path: "/signup",
+        element: <Signup />
     },
     {
-        path:"/admin/dashboard/create",
-        element:<CreateOptions/>,
+        element: <ProtectedRoute />,
+        children: [
+            {
+                path: "/admin/dashboard",
+                element: <Dashboard />,
+            },
+            {
+                path: "/admin/dashboard/create",
+                element: <CreateOptions />,
+            },
+            {
+                path: "/admin/dashboard/create/accountingmaster",
+                element: <CreateAccountingMastersOptions />,
+            },
+            {
+                path: "/admin/dashboard/create/inventorymaster",
+                element: <CreateInventoryMastersOptions />,
+            },
+            {
+                path: "/admin/dashboard/create/statutorymaster",
+                element: <CreateStatutoryMastersOptions />,
+            },
+            {
+                path: "/admin/dashboard/create/statutorydetails",
+                element: <CreateStatutoryDetailsOptions />,
+            },
+            {
+                path: "/admin/dashboard/alter",
+                element: <AlterOptions />,
+            },
+            {
+                path: "/admin/dashboard/alter/accountingmaster",
+                element: <AlterAccountingMastersOptions />,
+            },
+            {
+                path: "/admin/dashboard/alter/inventorymaster",
+                element: <AlterInventoryMastersOptions />,
+            },
+            // {
+            // path:"/admin/dashboard/create/statutorymaster",
+            // element:<StatutoryMastersOptions/>,
+            // },
+            // {
+            // path:"/admin/dashboard/create/statutorydetails",
+            // element:<StatutoryDetailsOptions/>,
+            // },
+            {
+                path: "/admin/dashboard/create/inventorymaster/unit",
+                element: <Unit />
+            },
+            {
+                path: "/admin/dashboard/creategroup",
+                element: <Group />
+            },
+            {
+                path: "/admin/dashboard/createvoucher",
+                element: <Voucher_type />
+            }
+        ]
     },
-    {
-        path:"/admin/dashboard/create/accountingmaster",
-        element:<CreateAccountingMastersOptions/>,
-    },
-    {
-        path:"/admin/dashboard/create/inventorymaster",
-        element:<CreateInventoryMastersOptions/>,
-    },
-    {
-        path:"/admin/dashboard/create/statutorymaster",
-        element:<CreateStatutoryMastersOptions/>,
-    },
-    {
-        path:"/admin/dashboard/create/statutorydetails",
-        element:<CreateStatutoryDetailsOptions/>,
-    },
-    {
-        path:"/admin/dashboard/alter",
-        element:<AlterOptions/>,
-    },
-    {
-        path:"/admin/dashboard/alter/accountingmaster",
-        element:<AlterAccountingMastersOptions/>,
-    },
-    {
-        path:"/admin/dashboard/alter/inventorymaster",
-        element:<AlterInventoryMastersOptions/>,
-    },
-    // {
-    //     path:"/admin/dashboard/create/statutorymaster",
-    //     element:<StatutoryMastersOptions/>,
-    // },
-    // {
-    //     path:"/admin/dashboard/create/statutorydetails",
-    //     element:<StatutoryDetailsOptions/>,
-    // },
-    {
-      path:"/admin/dashboard/create/inventorymaster/unit",
-      element:<Unit/>
-    },
-    {
-      path:"/admin/dashboard/creategroup",
-      element:<Group/>
-    },
-    {
-      path:"/admin/dashboard/createvoucher",
-      element:<Voucher_type/>
-    }
-  ]);
+]);
 
 export default router;
