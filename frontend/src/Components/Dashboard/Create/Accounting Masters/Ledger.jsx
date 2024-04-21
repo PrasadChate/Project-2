@@ -270,8 +270,9 @@ const Ledger = () => {
               placeholder="Enter PAN/IT No."
               autoComplete='off'
             />
-          </div>
+          </div><hr /></div>
 
+          <div>
           <div className="mb-4">
             <label htmlFor="RegistrationType" className="block text-sm font-semibold text-gray-600">Registration Type</label>
             <select onChange={handleMonthChange} id="RegistrationType" name="RegistrationType" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
@@ -281,16 +282,32 @@ const Ledger = () => {
               <option value="03">Regular</option>
               <option value="04">Unregistered</option>
             </select>
+          </div></div>
+
+          <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="w-full px-4 mb-4">
+            <label htmlFor="PanNo" className="block text-sm font-semibold text-gray-600">GSTIN/UIN</label>
+            <input
+              type="text"
+              id="PanNo"
+              name="PanNo"
+              value={formData.abbreviation}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="Enter GSTIN/UIN No."
+              autoComplete='off'
+            />
           </div>
 
-          <div className="mb-4">
+          <div className="w-full px-4 mb-4">
             <label htmlFor="SetGSTDetails" className="block text-sm font-semibold text-gray-600">Set/Alter GST Details</label>
             <select onChange={handleMonthChange} id="SetGSTDetails" name="SetGSTDetails" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
               <option value="">Select</option>
               <option value="01">YES</option>
               <option value="02">No</option>
             </select>
-          </div>
+          </div></div>
         </div>
 
 
