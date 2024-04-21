@@ -35,6 +35,21 @@ const productSchema = new mongoose.Schema({
         min: 1, // Example validation for positive integer
     },
 
+    minquantity:{
+        type:Number,
+        required:true,
+    },
+
+    maxquantity:{
+        type:Number,
+        required:true,
+    },
+
+    location:{
+        type:String,
+        required:true,
+    },
+
     isTaxApplicable:{
         type: Boolean,
         default: false,

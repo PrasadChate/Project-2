@@ -18,7 +18,7 @@ app.use(cors());
 // const product = require("./route/productRoute");
 const user = require("./route/userRoute");
 const company = require("./route/companyRoutes");
-const item = require("./route/itemRoutes");
+// const item = require("./route/itemRoutes");
 const voucher=require("./route/Accounting Masters Route/voucherRoute");
 
 //Accounting Masters routes

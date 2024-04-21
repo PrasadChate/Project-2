@@ -46,5 +46,35 @@ exports.getAllGroups = async(req, res)=>{
         group
     })
     
-    
+}
+
+//GROUP NAMES
+exports.getGroupNames = async(req, res)=>{
+    try{
+        //Fetching names for rightbar
+    const groupName = await Group.find({}, 'name');
+
+    const names = groupName.map(group => group.name);
+
+    //send names as response
+    res.status(200).json(names);
+    }
+    catch(err){
+        console.log('Error fetching group names', err);
+        res.status(500).json({error:'Internal server error'})
+    }
+};
+
+//GROUP UNDER
+exports.getGroupUnder = async(req, res)=>{
+    try{
+        const groupUnder = await Group.find({}, 'under');
+
+        const under = groupUnder.map(group=>group.under);
+
+        //send under data as response
+        res.status(200).json(under);
+    }catch(err){
+        res.status(500).json({error:'Internal Server error'})
+    }
 }

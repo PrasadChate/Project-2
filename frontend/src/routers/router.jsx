@@ -16,6 +16,7 @@ import AlterOptions from "../Components/Dashboard/Alter/AlterOptions";
 import AlterAccountingMastersOptions from "../Components/Dashboard/Alter/Accounting Masters/AlterAccountingMastersOptions";
 import AlterInventoryMastersOptions from "../Components/Dashboard/Alter/Inventory Masters/AlterInventoryMastersOptions";
 import Unit from "../Components/Dashboard/Create/Inventory Masters/Unit";
+import Stock_Item from "../Components/Dashboard/Create/Inventory Masters/Stock_Item";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -76,12 +77,16 @@ const router = createBrowserRouter([
       element:<Unit/>
     },
     {
-      path:"/admin/dashboard/creategroup",
+      path:"/admin/dashboard/create/accountingmaster/creategroup",
       element:<Group/>
     },
     {
-      path:"/admin/dashboard/createvoucher",
+      path:"/admin/dashboard/create/accountingmaster/createvoucher",
       element:<Voucher_type/>
+    },
+    {
+      path:"/admin/dashboard/createstock",
+      element:<Stock_Item/>
     }
   ]);
 

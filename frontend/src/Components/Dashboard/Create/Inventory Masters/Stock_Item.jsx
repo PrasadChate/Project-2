@@ -23,36 +23,36 @@ const Stock_Item = () => {
   const [showStockSidebar, setShowStockSidebar] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
-  useEffect(() => {
-    // Effect for handling keyboard events
-    const handleKeyDown = (e) => {
-      if (showCategorySidebar || showStockSidebar) {
-        const sidebarItemsArray = showCategorySidebar ? sidebarItems : stockItems;
-        if (e.key === 'ArrowDown') {
-          const newIndex = Math.min(selectedItemIndex + 1, sidebarItemsArray.length - 1);
-          setSelectedItemIndex(newIndex);
-        } else if (e.key === 'ArrowUp') {
-          const newIndex = Math.max(selectedItemIndex - 1, 0);
-          setSelectedItemIndex(newIndex);
-        } else if (e.key === 'Enter') {
-          e.preventDefault();
-          if (selectedItemIndex >= 0) {
-            const selectedItem = sidebarItemsArray[selectedItemIndex];
-            if (showCategorySidebar) {
-              handleSidebarItemClick(selectedItem);
-            } else {
-              handleProductSidebarItemClick(selectedItem); // Call appropriate function based on sidebar type
-            }
-          }
-        }
-      }
-    };
+  // useEffect(() => {
+  //   // Effect for handling keyboard events
+  //   const handleKeyDown = (e) => {
+  //     if (showCategorySidebar || showStockSidebar) {
+  //       const sidebarItemsArray = showCategorySidebar ? sidebarItems : stockItems;
+  //       if (e.key === 'ArrowDown') {
+  //         const newIndex = Math.min(selectedItemIndex + 1, sidebarItemsArray.length - 1);
+  //         setSelectedItemIndex(newIndex);
+  //       } else if (e.key === 'ArrowUp') {
+  //         const newIndex = Math.max(selectedItemIndex - 1, 0);
+  //         setSelectedItemIndex(newIndex);
+  //       } else if (e.key === 'Enter') {
+  //         e.preventDefault();
+  //         if (selectedItemIndex >= 0) {
+  //           const selectedItem = sidebarItemsArray[selectedItemIndex];
+  //           if (showCategorySidebar) {
+  //             handleSidebarItemClick(selectedItem);
+  //           } else {
+  //             handleProductSidebarItemClick(selectedItem); // Call appropriate function based on sidebar type
+  //           }
+  //         }
+  //       }
+  //     }
+  //   };
   
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [showCategorySidebar, showStockSidebar, selectedItemIndex]);
+  //   window.addEventListener('keydown', handleKeyDown);
+  //   return () => {
+  //     window.removeEventListener('keydown', handleKeyDown);
+  //   };
+  // }, [showCategorySidebar, showStockSidebar, selectedItemIndex]);
 
 
   const handlecreateitem = async (event)=>{
@@ -66,7 +66,7 @@ const Stock_Item = () => {
         console.log('item created successfully:', response.data.user);
       } else {
         // User creation failed
-        console.log('Log in failed:', response.data.message);
+        console.log('Item creation failed:', response.data.message);
       }
     } catch (error) {
       // Handle error
@@ -229,6 +229,45 @@ const Stock_Item = () => {
           <div className="w-full md:w-1/2 px-2 mb-4">
             <label htmlFor="numOfProducts" className="block text-sm font-semibold text-gray-600">
               Quantity Of Item
+            </label>
+            <input
+              type="text"
+              id="numOfProducts"
+              name="numOfProducts"
+              value={formData.numOfProducts}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="Enter quantity of item"
+              autoComplete='off'
+              onFocus={()=>{setShowCategorySidebar(false);setShowStockSidebar(false)}}
+
+            />
+          </div>
+          </div>
+
+          <div className='flex'>
+          <div className="w-full md:w-1/2 px-2 mb-4">
+            <label htmlFor="itemsEntryDate" className="block text-sm font-semibold text-gray-600">
+              Min Quantity
+            </label>
+            <input
+              type="text"
+              id="itemsEntryDate"
+              name="entryDate"
+              value={formData.itemsEntryDate}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="Enter product entry date"
+              autoComplete='off'
+              onFocus={()=>{setShowCategorySidebar(false);setShowStockSidebar(false)}}
+
+            />
+          </div>
+
+          {/* Quantity of Item Input */}
+          <div className="w-full md:w-1/2 px-2 mb-4">
+            <label htmlFor="numOfProducts" className="block text-sm font-semibold text-gray-600">
+              Max Quantity
             </label>
             <input
               type="text"
