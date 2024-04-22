@@ -17,6 +17,7 @@ import AlterAccountingMastersOptions from "../Components/Dashboard/Alter/Account
 import AlterInventoryMastersOptions from "../Components/Dashboard/Alter/Inventory Masters/AlterInventoryMastersOptions";
 import Unit from "../Components/Dashboard/Create/Inventory Masters/Unit";
 import Stock_Item from "../Components/Dashboard/Create/Inventory Masters/Stock_Item";
+import Ledger from "../Components/Dashboard/Create/Accounting Masters/Ledger";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
     {
       path:"/admin/dashboard/createstock",
       element:<Stock_Item/>
+    },
+    {
+      path:"/admin/dashboard/create/accountingmaster/createledger",
+      element:<Ledger/>
     }
   ]);
 
