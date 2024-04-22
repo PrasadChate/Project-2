@@ -48,7 +48,7 @@ const Group = () => {
 
   useEffect(()=>{
     //fetching group names from backend
-    axios.get('http://[::1]:4000/rac//group/groupname')
+    axios.get('http://[::1]:4000/rac/group/groupname')
     .then(response=>{
       setGroupNames(response.data);
     }).catch(err=>{
@@ -69,25 +69,41 @@ const Group = () => {
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === 'checkbox' ? checked : value,
-      [under]:type === 'checkbox' ? checked : value,
     }));
   };
 
   const handleUnderSidebarItemClick = (item) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      under: item,
-    }));
-    setShowCategorySidebar(false);
-    setShowStockSidebar(false);
+    if (typeof item === 'string') {
+      // Item coming from manual insertion
+      setFormData((prevData) => ({
+        ...prevData,
+        under: item,
+      }));
+    } else {
+      // Item coming from right sidebar
+      setFormData((prevData) => ({
+        ...prevData,
+        under: item.under,
+      }));
+      setShowCategorySidebar(false);
+    }
   };
 
   const handleNameSidebarItemClick = (item) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      name: item,
-    }));
-    setShowStockSidebar(false);
+    if(typeof item ==='string'){
+      //item coming from manual insertion
+      setFormData((prevData)=>({
+        ...prevData,
+        name:item,
+      }));
+    }else{
+      //Item coming from rightbar
+      setFormData((prevData) => ({
+        ...prevData,
+        name: item.name,
+      }));
+      setShowStockSidebar(false);
+    }
   };
 
 

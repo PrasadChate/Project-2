@@ -7,5 +7,6 @@ router.route("/groups/new").post(createGroup);
 router.route("/group/:id").put(alterGroup);
 router.route("/group/groupname").get(getGroupNames);
 router.route("/group/groupunder").get(getGroupUnder);
+router.route("/group/alter/:id").put(alterGroup);
 
 module.exports = router

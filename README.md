@@ -22,8 +22,5 @@ run the command
 
 ### `npm run dev`  in frontend directory
 
-To Login use :
-username: 'admin'
-password: 'admin'
 
 

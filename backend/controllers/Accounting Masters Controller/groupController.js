@@ -14,27 +14,26 @@ exports.createGroup = async(req, res, next)=>{
 //UPDATE GROUP
 exports.alterGroup = async(req, res, next)=>{
 
-    let group = Group.findById(req.params.id);
+    const {name} = req.params;
+    const newData = req.body;
 
-    if(!group){
-        return res.status(500).json({
-            success:false,
-            message:"Product not found"
-        })
+    try{
+        const group = await Group.findOne({name});
+
+        if(!group){
+            return res.status(404).json({success:false, message:'Group not Found'});
+        }
+
+        group.set(newData);
+        await group.save();
+
+        res.status(200).json({succes:true, groupId:group._id});
+    }catch(err){
+        console.error('Error updating the group');
+        res.status(500).json({success:false, message:'Internal Server Error'})
     }
 
-    group = await Group.findByIdAndUpdate(req.params.id, req.body,{
-        new:true, 
-        runValidators:true, 
-        useFindAndModify: false
-    });
-
-    res.status(200).json({
-        success:true,
-        group
-    })
-
-}
+};
 
 //get all groups
 exports.getAllGroups = async(req, res)=>{
