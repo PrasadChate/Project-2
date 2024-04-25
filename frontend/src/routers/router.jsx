@@ -85,6 +85,10 @@ const router = createBrowserRouter([
                 element: <Unit />
             },
             {
+                path: "/admin/dashboard/create/inventorymaster/createstock",
+                element: <Stock_Item/>
+            },
+            {
                 path: "/admin/dashboard/create/accountingmaster/creategroup",
                 element: <Group />
             },
@@ -93,14 +97,11 @@ const router = createBrowserRouter([
                 element: <Voucher_type />
             },
             {
-                path:"/admin/dashboard/create/accountingmaster/createstock",
-                element:<Stock_Item/>
-            },
-            {
                 path:"/admin/dashboard/create/accountingmaster/createledger",
                 element:<Ledger/>
             },
 
+            //
 
             //ALTER MASTERS ROUTE
 

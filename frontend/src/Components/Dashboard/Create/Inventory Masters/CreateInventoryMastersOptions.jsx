@@ -27,7 +27,7 @@ const CreateInventoryMastersOptions = () =>{
             <div className="flex flex-wrap">
                 <div className={cardStyle} onClick={()=>{}}>Stock Group</div>
                 <div className={cardStyle} onClick={()=>{}}>Stock Category</div>
-                <div className={cardStyle} onClick={()=>{}}>Stock Item</div>
+                <div className={cardStyle} onClick={()=>{navigate("/admin/dashboard/create/inventorymaster/createstock")}}>Stock Item</div>
                 <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Unit")}}>Unit</div>
                 <div className={cardStyle} onClick={()=>{}}>Godown</div>
             </div>
