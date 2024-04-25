@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Rightbar from '../../Reusable code/Rightbar';
 // import axios from 'axios';
-// import LastVisitedPage from './LastVisitedPage';
+
 const Stock_Item = () => {
 
   // State variables
@@ -22,37 +22,6 @@ const Stock_Item = () => {
   const [showCategorySidebar, setShowCategorySidebar] = useState(false);
   const [showStockSidebar, setShowStockSidebar] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
-
-  // useEffect(() => {
-  //   // Effect for handling keyboard events
-  //   const handleKeyDown = (e) => {
-  //     if (showCategorySidebar || showStockSidebar) {
-  //       const sidebarItemsArray = showCategorySidebar ? sidebarItems : stockItems;
-  //       if (e.key === 'ArrowDown') {
-  //         const newIndex = Math.min(selectedItemIndex + 1, sidebarItemsArray.length - 1);
-  //         setSelectedItemIndex(newIndex);
-  //       } else if (e.key === 'ArrowUp') {
-  //         const newIndex = Math.max(selectedItemIndex - 1, 0);
-  //         setSelectedItemIndex(newIndex);
-  //       } else if (e.key === 'Enter') {
-  //         e.preventDefault();
-  //         if (selectedItemIndex >= 0) {
-  //           const selectedItem = sidebarItemsArray[selectedItemIndex];
-  //           if (showCategorySidebar) {
-  //             handleSidebarItemClick(selectedItem);
-  //           } else {
-  //             handleProductSidebarItemClick(selectedItem); // Call appropriate function based on sidebar type
-  //           }
-  //         }
-  //       }
-  //     }
-  //   };
-  
-  //   window.addEventListener('keydown', handleKeyDown);
-  //   return () => {
-  //     window.removeEventListener('keydown', handleKeyDown);
-  //   };
-  // }, [showCategorySidebar, showStockSidebar, selectedItemIndex]);
 
 
   const handlecreateitem = async (event)=>{
@@ -247,14 +216,14 @@ const Stock_Item = () => {
 
           <div className='flex'>
           <div className="w-full md:w-1/2 px-2 mb-4">
-            <label htmlFor="itemsEntryDate" className="block text-sm font-semibold text-gray-600">
+            <label htmlFor="minquantity" className="block text-sm font-semibold text-gray-600">
               Min Quantity
             </label>
             <input
               type="text"
-              id="itemsEntryDate"
-              name="entryDate"
-              value={formData.itemsEntryDate}
+              id="minquantity"
+              name="minquantity"
+              value={formData.minquantity}
               onChange={handleInputChange}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Enter product entry date"
@@ -266,17 +235,35 @@ const Stock_Item = () => {
 
           {/* Quantity of Item Input */}
           <div className="w-full md:w-1/2 px-2 mb-4">
-            <label htmlFor="numOfProducts" className="block text-sm font-semibold text-gray-600">
+            <label htmlFor="maxquantity" className="block text-sm font-semibold text-gray-600">
               Max Quantity
             </label>
             <input
               type="text"
-              id="numOfProducts"
-              name="numOfProducts"
-              value={formData.numOfProducts}
+              id="maxquantity"
+              name="maxquantity"
+              value={formData.maxquantity}
               onChange={handleInputChange}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Enter quantity of item"
+              autoComplete='off'
+              onFocus={()=>{setShowCategorySidebar(false);setShowStockSidebar(false)}}
+
+            />
+          </div>
+
+          <div className="w-full md:w-1/2 px-2 mb-4">
+            <label htmlFor="location" className="block text-sm font-semibold text-gray-600">
+              Location
+            </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value={formData.location}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="Enter location of item"
               autoComplete='off'
               onFocus={()=>{setShowCategorySidebar(false);setShowStockSidebar(false)}}
 
@@ -397,16 +384,11 @@ const Stock_Item = () => {
             </div>
           )}
 
-        <button
-          type="submit"
-          className="p-3 border rounded"
-          onClick={handlecreateitem}
-        >
-          Submit
-        </button>
+<div className='flex justify-center '>
+         <button
+         className='items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md mt-4'>Create</button>
+         </div>
       </form>
-
-      {/* Conditionally render the category sidebar */}
 
       {/* Conditionally render the stock sidebar */}
       {showStockSidebar && (
@@ -426,7 +408,6 @@ const Stock_Item = () => {
         />
       )}
 
-      
     </div>
   );
 };
