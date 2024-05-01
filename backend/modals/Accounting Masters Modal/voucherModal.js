@@ -14,7 +14,7 @@ const voucherSchema = new mongoose.Schema({
         required: [true, "Please enter abbreviation"]
     },
     avtype: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select the activation type"]
     },
     mvtype: {
@@ -22,35 +22,35 @@ const voucherSchema = new mongoose.Schema({
         required: [true, "Please enter the method of voucher numbering"]
     },
     ueffect: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select the use of effective dates"]
     },
     zeroValue: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select whether to allow zero-valued transactions"]
     },
     moptional: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select whether to make this voucher type optional by default"]
     },
     barcoding: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select whether to enable barcode printing"]
     },
     anarrow: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select whether to allow narration in voucher"]
     },
     panarrow: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select whether to provide narrations for each ledger in voucher"]
     },
     dsignature: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select whether to use digital signature while printing"]
     },
     pvoucher: {
-        type: Boolean,
+        type: String,
         required: [true, "Please select whether to print voucher after saving"]
     }
 });

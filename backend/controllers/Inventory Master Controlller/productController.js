@@ -20,9 +20,8 @@ exports.getAllProducts = catchAsyncErrors(async(req, res, next)=>{
     if(!allProductDetails){
         return next(new ErrorHandler("Error Fetching Companies", 404));
     }
-
     res.status(200).json({
         success:true,
         allProductDetails,
-    })
+    })
 })

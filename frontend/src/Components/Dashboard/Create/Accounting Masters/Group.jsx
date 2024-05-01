@@ -19,7 +19,7 @@ const Group = () => {
   const [showStockSidebar, setShowStockSidebar] = useState(false);
   // const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
   const [groupNames, setGroupNames] = useState([]);
-  const [underCategory, setUnderCategory] = useState('');
+  const [underCategory, setUnderCategory] = useState([]);
   
   const handleCreateGroup = async (event) => {
     event.preventDefault();
@@ -39,10 +39,12 @@ const Group = () => {
           method:''
         })
       } else {
+        
         console.log('Group creation failed:', response);
       }
     } catch (error) {
       console.log('Error:', error.response);
+      alert(error.response.data.message)
     }
   };
 
@@ -50,17 +52,27 @@ const Group = () => {
     //fetching group names from backend
     axios.get('http://[::1]:4000/rac/group/groupname')
     .then(response=>{
-      setGroupNames(response.data);
+      if(response && response.data && Array.isArray(response.data)){
+        const uniqueGroupNames = Array.from(new Set(response.data.map(groupNames => groupNames)));
+        setGroupNames(uniqueGroupNames);
+      }else{
+        console.error("Invalid response format or empty data array");
+      }
     }).catch(err=>{
-      console.log("Error fetching groups", err)
+      console.log("Error fetching groups", err);
     });
 
     //FETCHING GROUP UNDER CATEGORIES
     axios.get('http://[::1]:4000/rac/group/groupunder')
     .then(response=>{
-      setUnderCategory(response.data);
+      if(response && response.data && Array.isArray(response.data)){
+        const uniqueUnderNames = Array.from(new Set(response.data.map(underCategory => underCategory)));
+        setUnderCategory(uniqueUnderNames);
+      }else{
+        conole.error("Invalid response")
+      }
     }).catch(err=>{
-      console.log("Error Fetching under data");
+      console.log("Error Fetching under data", err);
     });
   });
 

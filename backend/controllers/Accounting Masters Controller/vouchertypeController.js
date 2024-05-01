@@ -4,12 +4,21 @@ const Voucher = require("../../modals/Accounting Masters Modal/voucherModal");
 exports.createVoucher = async (req, res, next) => {
     try {
         const voucher = await Voucher.create(req.body);
+        if (!voucher) {
+            // If voucher creation failed for some reason
+            return res.status(500).json({
+                success: false,
+                error: "Failed to create voucher",
+            });
+        }
+        // Return a successful response with the created voucher
         res.status(201).json({
             success: true,
-            voucher
+            voucher,
         });
     } catch (error) {
-        res.status(400).json({ success: false, message: error.message });
+        // Handle validation errors or other unexpected errors
+        res.status(400).json({ success: false, error: error.message });
     }
 };
 

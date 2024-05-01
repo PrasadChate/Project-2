@@ -1,7 +1,4 @@
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "../Authentication/Login";
 import Signup from "../Authentication/Signup";
 import Dashboard from "../Components/Dashboard/Dashboard";
@@ -21,63 +18,65 @@ import ProtectedRoute from "./ProtectedRoute";
 import Stock_Item from "../Components/Dashboard/Create/Inventory Masters/Stock_Item";
 import Ledger from "../Components/Dashboard/Create/Accounting Masters/Ledger";
 import AlterGroup from "../Components/Dashboard/Alter/Accounting Masters/Group";
+import Navbar from "../Components/Dashboard/Reusable code/Navbar";
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Login />
-    },
+  //   <Navbar />,
+  {
+    path: "/",
+    element: <Login />,
+  },
 
-    {
-        path: "/signup",
-        element: <Signup />
-    },
-    {
-        element: <ProtectedRoute />,
-        children: [
-            {
-                path: "/admin/dashboard",
-                element: <Dashboard />,
-            },
-            {
-                path: "/admin/dashboard/create",
-                element: <CreateOptions />,
-            },
-            {
-                path: "/admin/dashboard/create/accountingmaster",
-                element: <CreateAccountingMastersOptions />,
-            },
-            {
-                path: "/admin/dashboard/create/inventorymaster",
-                element: <CreateInventoryMastersOptions />,
-            },
-            {
-                path: "/admin/dashboard/create/statutorymaster",
-                element: <CreateStatutoryMastersOptions />,
-            },
-            {
-                path: "/admin/dashboard/create/statutorydetails",
-                element: <CreateStatutoryDetailsOptions />,
-            },
-            {
-                path: "/admin/dashboard/alter",
-                element: <AlterOptions />,
-            },
-            {
-                path: "/admin/dashboard/alter/accountingmaster",
-                element: <AlterAccountingMastersOptions />,
-            },
-            {
-                path: "/admin/dashboard/alter/inventorymaster",
-                element: <AlterInventoryMastersOptions />,
-            },
-            // {
-            // path:"/admin/dashboard/create/statutorymaster",
-            // element:<StatutoryMastersOptions/>,
-            // },
-            // {
-            // path:"/admin/dashboard/create/statutorydetails",
-            // element:<StatutoryDetailsOptions/>,
-            // },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: "/admin/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/admin/dashboard/create",
+        element: <CreateOptions />,
+      },
+      {
+        path: "/admin/dashboard/create/accountingmaster",
+        element: <CreateAccountingMastersOptions />,
+      },
+      {
+        path: "/admin/dashboard/create/inventorymaster",
+        element: <CreateInventoryMastersOptions />,
+      },
+      {
+        path: "/admin/dashboard/create/statutorymaster",
+        element: <CreateStatutoryMastersOptions />,
+      },
+      {
+        path: "/admin/dashboard/create/statutorydetails",
+        element: <CreateStatutoryDetailsOptions />,
+      },
+      {
+        path: "/admin/dashboard/alter",
+        element: <AlterOptions />,
+      },
+      {
+        path: "/admin/dashboard/alter/accountingmaster",
+        element: <AlterAccountingMastersOptions />,
+      },
+      {
+        path: "/admin/dashboard/alter/inventorymaster",
+        element: <AlterInventoryMastersOptions />,
+      },
+      // {
+      // path:"/admin/dashboard/create/statutorymaster",
+      // element:<StatutoryMastersOptions/>,
+      // },
+      // {
+      // path:"/admin/dashboard/create/statutorydetails",
+      // element:<StatutoryDetailsOptions/>,
+      // },
 
             //CREATE MASTERS ROUTES
             {
@@ -89,7 +88,7 @@ const router = createBrowserRouter([
                 element: <Group />
             },
             {
-                path: "/admin/dashboard/create/accountingmaster/createvoucher",
+                path: "/admin/dashboard/create/accountingmaster/creategroup",
                 element: <Voucher_type />
             },
             {
@@ -101,15 +100,16 @@ const router = createBrowserRouter([
                 element:<Ledger/>
             },
 
+      //
 
-            //ALTER MASTERS ROUTE
+      //ALTER MASTERS ROUTE
 
-            {
-                path:"/admin/dashboard/create/accountingmaster/altergroup",
-                element:<AlterGroup/>
-            }
-        ]
-    },
+      {
+        path: "/admin/dashboard/create/accountingmaster/altergroup",
+        element: <AlterGroup />,
+      },
+    ],
+  },
 ]);
 
 export default router;

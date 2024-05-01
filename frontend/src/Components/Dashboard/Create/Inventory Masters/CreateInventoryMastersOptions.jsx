@@ -15,6 +15,9 @@ const CreateInventoryMastersOptions = () =>{
       if(selectedOption==0 && option=="Unit"){
           navigate("/admin/dashboard/create/inventorymaster/unit")
       }
+      if(selectedOption==0 && option=="Stock Item"){
+        navigate("/admin/dashboard/create/inventorymaster/createstock")
+      }
   }
   const cardStyle = "bg-white mt-6 py-4 w-[200px] text-center rounded-md font-bold cursor-pointer hover:shadow-lg transform hover:scale-105 text-blue-700 mx-6"
   const sideBaroptions = ["Master" ,"Transactions","Utilities","Reports"]
@@ -27,7 +30,7 @@ const CreateInventoryMastersOptions = () =>{
             <div className="flex flex-wrap">
                 <div className={cardStyle} onClick={()=>{}}>Stock Group</div>
                 <div className={cardStyle} onClick={()=>{}}>Stock Category</div>
-                <div className={cardStyle} onClick={()=>{}}>Stock Item</div>
+                <div className={cardStyle} onClick={()=>{handleClick(selectedOptions, "Stock Item")}}>Stock Item</div>
                 <div className={cardStyle} onClick={()=>{handleClick(selectedOptions,"Unit")}}>Unit</div>
                 <div className={cardStyle} onClick={()=>{}}>Godown</div>
             </div>

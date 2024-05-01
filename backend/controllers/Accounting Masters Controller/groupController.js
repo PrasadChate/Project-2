@@ -1,54 +1,56 @@
+const catchAsyncErrors = require("../../middleWare/catchAsyncErrors");
 const Group = require("../../modals/Accounting Masters Modal/groupModal");
+const ErrorHandler = require("../../utils/errorhander");
 
 
 //CREATE GROUP
-exports.createGroup = async(req, res, next)=>{
+exports.createGroup = catchAsyncErrors (async(req, res, next)=>{
     const group = await Group.create(req.body);
 
     res.status(201).json({
         success:true,
         group
     })
-}
+});
+
 
 //UPDATE GROUP
-exports.alterGroup = async(req, res, next)=>{
+exports.alterGroup = catchAsyncErrors(async(req, res, next)=>{
+    let group = await Group.find(req.params.name);
 
-    const {name} = req.params;
-    const newData = req.body;
-
-    try{
-        const group = await Group.findOne({name});
-
-        if(!group){
-            return res.status(404).json({success:false, message:'Group not Found'});
-        }
-
-        group.set(newData);
-        await group.save();
-
-        res.status(200).json({succes:true, groupId:group._id});
-    }catch(err){
-        console.error('Error updating the group');
-        res.status(500).json({success:false, message:'Internal Server Error'})
+    if(!group){
+        return next(new ErrorHandler("Group not found", 404));
     }
 
-};
-
-//get all groups
-exports.getAllGroups = async(req, res)=>{
-
-    const group = await Group.find();
+    group = await Group.findByIdAndUpdate(req.params.id, req.body, {
+        new:true, 
+        runValidators:true,
+        useFindAndModify:false,
+    });
 
     res.status(200).json({
         success:true,
         group
     })
-    
-}
+})
+
+//get all groups
+exports.getAllGroups = catchAsyncErrors(async(req, res)=>{
+
+    const group = await Group.find();
+
+    if(!group){
+        return next(new ErrorHandler("Groups not found", 404))
+    }
+
+    res.status(200).json({
+        success:true,
+        group
+    })   
+})
 
 //GROUP NAMES
-exports.getGroupNames = async(req, res)=>{
+exports.getGroupNames = catchAsyncErrors(async(req, res)=>{
     try{
         //Fetching names for rightbar
     const groupName = await Group.find({}, 'name');
@@ -62,18 +64,50 @@ exports.getGroupNames = async(req, res)=>{
         console.log('Error fetching group names', err);
         res.status(500).json({error:'Internal server error'})
     }
-};
+});
 
 //GROUP UNDER
-exports.getGroupUnder = async(req, res)=>{
+exports.getGroupUnder = catchAsyncErrors(async(req, res)=>{
     try{
         const groupUnder = await Group.find({}, 'under');
 
         const under = groupUnder.map(group=>group.under);
+
+        if(!under){
+            return next(new ErrorHandler("Group under category not found", 404))
+        }
 
         //send under data as response
         res.status(200).json(under);
     }catch(err){
         res.status(500).json({error:'Internal Server error'})
     }
-}
+});
+
+//GROUP DELETE
+exports.deleteGroup = catchAsyncErrors(async(req,res, next)=>{
+    const group = await Group.find({}, 'name');
+
+    if(!group){
+        return next(new ErrorHandler("Group not Found"))
+    }
+
+    await group.remove();
+    res.status(200).json({
+        success:true,
+        message:"Group deleted Successfully"
+    })
+})
+
+exports.getGroupDetails = catchAsyncErrors(async(req, res, next)=>{
+    const group = await Group.find(req.params.name);
+
+    if(!group){
+        return next(new ErrorHandler("Group not Found", 404))
+    }
+
+    res.status(200).json({
+        success:true,
+        group
+    })
+})
