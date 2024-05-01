@@ -89,7 +89,7 @@ const router = createBrowserRouter([
                 element: <Group />
             },
             {
-                path: "/admin/dashboard/create/accountingmaster/creategroup",
+                path: "/admin/dashboard/create/accountingmaster/createvoucher",
                 element: <Voucher_type />
             },
             {
