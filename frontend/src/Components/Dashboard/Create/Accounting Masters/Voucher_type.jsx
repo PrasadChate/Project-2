@@ -354,4 +354,4 @@ const Voucher_type_new = () => {
   );
 };
 
-export default Voucher_type;
+export default Voucher_type_new;
