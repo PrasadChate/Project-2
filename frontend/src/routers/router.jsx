@@ -19,6 +19,7 @@ import Stock_Item from "../Components/Dashboard/Create/Inventory Masters/Stock_I
 import Ledger from "../Components/Dashboard/Create/Accounting Masters/Ledger";
 import AlterGroup from "../Components/Dashboard/Alter/Accounting Masters/Group";
 import Navbar from "../Components/Dashboard/Reusable code/Navbar";
+import Report from "../Components/Dashboard/Balance_Sheet/Report";
 const router = createBrowserRouter([
   //   <Navbar />,
   {
@@ -111,6 +112,12 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/create/accountingmaster/altergroup",
         element: <AlterGroup />,
+      },
+
+      // Reports Route
+      {
+        path: "/admin/dashboard/Balance_Sheet",
+        element: <Report />,
       },
     ],
   },
