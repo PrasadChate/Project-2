@@ -11,12 +11,14 @@ const Stock_Item = () => {
     underCategory: "",
     entryMonth: "",
     entryDate: "",
-    productExpiryDate: "",
+    //productExpiryDate: "",
     numOfProducts: "",
     isTaxApplicable: false,
     tax: "",
     cgst: "",
     sgst: "",
+    isShelfLife:false,
+    productExpiryDate:""
   });
 
   const [showCategorySidebar, setShowCategorySidebar] = useState(false);

@@ -79,31 +79,27 @@ const router = createBrowserRouter([
       // element:<StatutoryDetailsOptions/>,
       // },
 
-      //CREATE MASTERS ROUTES
-      {
-        path: "/admin/dashboard/create/inventorymaster/unit",
-        element: <Unit />,
-      },
-      {
-        path: "/admin/dashboard/create/inventorymaster/createstock",
-        element: <Stock_Item />,
-      },
-      {
-        path: "/admin/dashboard/create/accountingmaster/creategroup",
-        element: <Group />,
-      },
-      {
-        path: "/admin/dashboard/create/accountingmaster/createvoucher",
-        element: <Voucher_type />,
-      },
-      {
-        path: "/admin/dashboard/create/inventorymaster/createstock",
-        element: <Stock_Item />,
-      },
-      {
-        path: "/admin/dashboard/create/accountingmaster/createledger",
-        element: <Ledger />,
-      },
+            //CREATE MASTERS ROUTES
+            {
+                path: "/admin/dashboard/create/inventorymaster/unit",
+                element: <Unit />
+            },
+            {
+                path: "/admin/dashboard/create/accountingmaster/creategroup",
+                element: <Group />
+            },
+            {
+                path: "/admin/dashboard/create/accountingmaster/creategroup",
+                element: <Voucher_type />
+            },
+            {
+                path:"/admin/dashboard/create/accountingmaster/createstock",
+                element:<Stock_Item/>
+            },
+            {
+                path:"/admin/dashboard/create/accountingmaster/createledger",
+                element:<Ledger/>
+            },
 
       //
 

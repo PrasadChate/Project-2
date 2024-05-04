@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "axios"; // Import axios here
+import Rightbar from "../../Reusable code/Rightbar";
 import Escape from "../../Reusable code/Escape";
 
 const Voucher_type_new = () => {
@@ -22,9 +23,20 @@ const Voucher_type_new = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    // const booleanVal = value==="01" ? true : false;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
+    }));
+  };
+
+  const handleBoolValue = (e) => {
+    const { name, value } = e.target;
+    const boolValue = value.toUpperCase() === "YES"; // Convert 'YES' to true, everything else to false
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: boolValue,
     }));
   };
 
@@ -33,12 +45,12 @@ const Voucher_type_new = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/rac/vouchers/new",
+        "http://[::1]:4000/rac/vouchers/new",
         formData
       );
-      if (response.data.success) {
-        console.log("Voucher created successfully:", response.data);
-        alert("Voucher Created Successfully");
+      if (response) {
+        console.log("Voucher created successfully:", response);
+        alert("Voucher Created Successfuly");
         //reset the form
         setFormData({
           name: "",
@@ -56,7 +68,7 @@ const Voucher_type_new = () => {
           pvoucher: "",
         });
       } else {
-        console.log("Voucher creation failed:", response.data.error);
+        console.log("Voucher creation failed:", response);
       }
     } catch (error) {
       console.log("Error:", error.response);
@@ -84,6 +96,7 @@ const Voucher_type_new = () => {
           Create Voucher
         </h1>
 
+        {/* Form fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="mb-4">
             <label
@@ -148,10 +161,9 @@ const Voucher_type_new = () => {
               Activate this voucher type
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="avtype"
               name="avtype"
-              value={formData.avtype}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -168,10 +180,9 @@ const Voucher_type_new = () => {
               Method of voucher numbering
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="mvtype"
               name="mvtype"
-              value={formData.mvtype}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Methods of Numbering</option>
@@ -190,10 +201,9 @@ const Voucher_type_new = () => {
               Use effective dates for voucher
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="ueffect"
               name="ueffect"
-              value={formData.ueffect}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -203,16 +213,15 @@ const Voucher_type_new = () => {
           </div>
           <div className="mb-4">
             <label
-              htmlFor="zeroValue"
+              htmlFor="zero-value"
               className="block text-sm font-semibold text-gray-600"
             >
               Allow Zero-valued transactions
             </label>
             <select
-              onChange={handleInputChange}
-              id="zeroValue"
-              name="zeroValue"
-              value={formData.zeroValue}
+              onChange={handleBoolValue}
+              id="zero-value"
+              name="zero-value"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -228,10 +237,9 @@ const Voucher_type_new = () => {
               Make this voucher type as "Optional" by default
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="moptional"
               name="moptional"
-              value={formData.moptional}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -247,10 +255,9 @@ const Voucher_type_new = () => {
               Barcode Printing
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="barcoding"
               name="barcoding"
-              value={formData.barcoding}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -266,10 +273,9 @@ const Voucher_type_new = () => {
               Allow narration in voucher
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="anarrow"
               name="anarrow"
-              value={formData.anarrow}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -285,10 +291,9 @@ const Voucher_type_new = () => {
               Provide narrations for each ledger in voucher
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="panarrow"
               name="panarrow"
-              value={formData.panarrow}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -304,10 +309,9 @@ const Voucher_type_new = () => {
               Use Digital Signature while Printing{" "}
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="dsignature"
               name="dsignature"
-              value={formData.dsignature}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -324,10 +328,9 @@ const Voucher_type_new = () => {
               Print Voucher after saving{" "}
             </label>
             <select
-              onChange={handleInputChange}
+              onChange={handleBoolValue}
               id="pvoucher"
               name="pvoucher"
-              value={formData.pvoucher}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="">Select</option>
@@ -337,9 +340,10 @@ const Voucher_type_new = () => {
           </div>
         </div>
 
+        {/* Buttons */}
         <div className="flex justify-center ">
           <button
-            type="submit"
+            onClick={handleCreateVoucher}
             className="items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border rounded-md mt-4"
           >
             Create
@@ -350,4 +354,4 @@ const Voucher_type_new = () => {
   );
 };
 
-export default Voucher_type_new;
+export default Voucher_type;
