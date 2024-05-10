@@ -8,10 +8,12 @@ To install dependencies Navigate to the frontend as well as backend directory.
 Runs the app in the development mode.\
 
 Navigate to frontend directory
-### npm run dev
-
+```assembly
+ npm run dev
+```
 Navigate to backend directory
-### npm run dev
-
+```assembly
+ npm run dev
+```
 The page will reload when you make changes.
 You may also see any lint errors in the console.
